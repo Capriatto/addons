@@ -1,0 +1,64 @@
+<openerp>
+    <data>
+        <!-- Inherit purchase order report (from purchase module) -->
+        <template id="custom_purchase_quotation" inherit_id="purchase.report_purchaseorder_document">
+
+            <xpath expr="//t[@t-call='report.external_layout']" position="attributes">
+                <attribute name="t-call">extra_layouts.external_layout_purchase</attribute>
+            </xpath>
+
+            <xpath expr="//div[@class='page']/div[@class='row']" position="replace">
+                <div class="row">
+                    <div class="col-xs-4">
+                        <strong>Supplier: </strong> <span t-field="o.partner_id.name"/><br/>
+                    </div>
+                    <div class="col-xs-4">
+                        <strong>Address: </strong><span t-field="o.partner_id.street"/>, <span t-field="o.partner_id.zip"/> <span t-field="o.partner_id.city"/>, <span t-field="o.partner_id.state_id.name"/>, <span t-field="o.partner_id.country_id.name"/>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-4">
+                        <p t-if="o.partner_id.vat">VAT: <span t-field="o.partner_id.vat"/></p>
+                    </div>
+                    <div class="col-xs-3">
+                        <p t-if="o.partner_id.fax">FAX: <span t-field="o.partner_id.fax"/></p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-12 text-left">
+                        <strong>Observaciones:<br/>
+                        Por favor, se ruega nos comuniquen la confirmación del pedido a su recepción. Gracias.</strong>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-6">
+                        <h3 t-if="o.state != 'draft'">Purchase Order Confirmation Nº<span t-field="o.name"/></h3>
+                        <h3 t-if="o.state == 'draft'">Request for Quotation Nº<span t-field="o.name"/></h3>
+                    </div>
+    
+                    <div t-if="o.partner_ref" class="col-xs-3">
+                       <strong>Your Order Reference</strong> <p t-field="o.partner_ref"/>
+                    </div>
+                    <div t-if="o.date_order" class="col-xs-3">
+                       <strong>Order Date:</strong> <p t-field="o.date_order"/>
+                    </div>
+                </div>
+            </xpath>
+
+            <xpath expr="//div[@class='page']//h2" position="replace">
+            </xpath>
+
+            <xpath expr="//span[@t-field='line.product_uom.name']" position="after">
+                <span t-if="line.product_uop_qty != 0"><br/><span t-field="line.product_uop_qty"/> <span t-field="line.product_uop.name"/></span>
+            </xpath>
+
+            <xpath expr="//span[@t-field='line.price_unit']" position="after">
+                <span t-if="line.product_uop_qty != 0"><br/><span t-field="line.price_unit_uop"/></span>
+            </xpath>
+
+            <xpath expr="//div[@class='page']//div[@class='row mt32 mb32']" position="replace">
+            </xpath>
+
+        </template>
+    </data>
+</openerp>

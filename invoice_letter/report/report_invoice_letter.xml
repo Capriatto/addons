@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+  <data>
+    <template id="report_invoice_letter">
+      <t t-call="report.external_layout">
+        <t t-foreach="docs" t-as="o">
+          <div class="page">
+            <div class="row">
+              <div class="col-xs-5 col-xs-offset-7">
+                <strong><span t-field="o.partner_id.name"/></strong><br/>
+                <strong><span t-field="o.partner_id.street"/></strong><br/>
+                <strong><span t-field="o.partner_id.zip"/>, <span t-field="o.partner_id.city"/> (<span t-field="o.partner_id.state_id.name"/>)</strong><br/>
+                <strong><span t-field="o.partner_id.country_id.name"/></strong>
+              </div>
+            </div>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <div class="row mt32 mb32">
+              Estimados Sres.:<br/><br/>
+              Por la presente le adjuntamos el documento correspondiente a la Factura con el Número: <span t-field="o.number"/> correspondiente a nuestra Cuenta de Cliente: <span t-field="o.partner_id.parent_id.ref"/> - <span t-field="o.partner_id.parent_id.name"/>
+              <br/><br/><br/>
+              Sin otro particular, reciban un saludo cordial. <br/><br/>
+            </div>
+          </div>
+        </t>
+      </t>
+    </template>
+  </data>
+</openerp>

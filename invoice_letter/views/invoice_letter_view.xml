@@ -1,0 +1,18 @@
+<openerp>
+    <data>
+        <record model="ir.actions.report.xml" id="report_letter">
+          <field name="name">Carta</field>
+          <field name="model">account.invoice</field>
+          <field name="report_type">qweb-pdf</field>
+          <field name="report_name">invoice_letter.report_invoice_letter</field>
+        </record>
+        <report
+          id="report_letter"
+          model="account.invoice"
+          string="Carta"
+          report_type="qweb-pdf"
+          name="invoice_letter.report_invoice_letter"
+          file="invoice_letter.report_invoice_letter"
+        />
+    </data>
+</openerp>

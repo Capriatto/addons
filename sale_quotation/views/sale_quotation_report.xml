@@ -1,0 +1,19 @@
+<openerp>
+    <data>
+        <record model="ir.actions.report.xml" id="report_quotation">
+            <field name="name">Ofertas</field>
+            <field name="model">sale.order</field>
+            <field name="report_type">qweb-pdf</field>    
+            <field name="report_name">sale_quotation.report_quotation</field>
+        </record>
+
+        <report
+            id="report_quotation"
+            model="sale.order"
+            string="Ofertas"
+            report_type="qweb-pdf"
+            name="sale_quotation.report_quotation"
+            file="sale_quotation.report_quotation"
+        />
+    </data>
+</openerp>

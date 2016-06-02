@@ -1,0 +1,230 @@
+<openerp>
+    <data>
+        <!-- Inherit layout view (from report module) -->
+        <template id="extra_layouts" inherit_id="report.external_layout_header">
+            <xpath expr="//div[@class='header']" position="replace">
+                <div class="header">
+                    <div class="row">
+                        <div class="col-xs-4">
+                            <img src='/extra_layouts/static/description/logo_scr.PNG'/><br/>
+                            <a href="http://www.scr.es">http://www.scr.es</a>
+                        </div>
+                        <div class="col-xs-4">
+                            <strong> Oficina/Fábrica </strong><br/>
+                            Camiño da Fábrica, 12<br/>
+                            Ctra. Porriño-Gondomar, Km. 2<br/>
+                            36419 Pereiras-Mos, Pontevedra
+                        </div>
+                        <div class="col-xs-4">
+                            <ul class="list-inline text-right">
+                                <li>Página</li>
+                                <li><span class="page"/></li>
+                                <li>de</li>
+                                <li><span class="topage"/></li>
+                            </ul>
+                            Tel: 986 33 00 51 / Fax: 986 33 53 68<br/>
+                            E-mail Oficina: <a href="oficina@scr.es">oficina@scr.es</a><br/>
+                            E-mail Fábrica: <a href="fabrica@scr.es">fabrica@scr.es</a>
+                        </div>
+                    </div>
+                </div>
+            </xpath>
+        </template>
+
+        <template id="extra_layouts_footer" inherit_id="report.external_layout_footer">
+            <xpath expr="//ul[2]" position="replace">
+            </xpath>
+        </template>
+
+        <template id="extra_layouts_internal_layout" inherit_id="report.internal_layout">
+            <xpath expr="//div[@class='header']//div[@class='row']" position="replace">
+            </xpath>
+        </template>
+
+        <!-- Quotation layout -->        
+        <template id="external_layout_quotation">
+            <!-- Multicompany -->
+            <t t-if="o and 'company_id' in o">
+                <t t-set="company" t-value="o.company_id"></t>
+                </t>
+            <t t-if="not o or not 'company_id' in o">
+                <t t-set="company" t-value="res_company"></t>
+            </t>
+
+            <t t-call="extra_layouts.external_layout_quotation_header" />
+                <t t-raw="0" />
+            <t t-call="extra_layouts.external_layout_quotation_footer" />
+        </template>
+
+        <template id="external_layout_quotation_header">
+            <div class="header">
+                <div class="row">
+                    <div class="col-xs-4"> 
+                        <img src='/extra_layouts/static/description/logotiposcr.png' width="275"/><br/>
+                        SERRERÍAS CARRERA RAMÍREZ, S.L.<br/>
+                        <strong>DC 7.3.1.05/02</strong>
+                    </div>
+                    <div class="col-xs-4">
+                        <strong> Oficina/Fábrica </strong><br/>
+                        Camiño da Fábrica, 12<br/>
+                        Ctra. Porriño-Gondomar, KM. 2<br/>                
+                        36419 Pereiras-Mos, Pontevedra
+                    </div>
+                    <div class="col-xs-4">
+                        <ul class="list-inline text-right">
+                            <li>Página</li>
+                            <li><span class="page"/></li>
+                            <li>de</li>
+                            <li><span class="topage"/></li>
+                        </ul>
+                    Tel: 986 33 00 51 / Fax: 986 33 53 68<br/>
+                    E-mail Oficina: <a href="oficina@scr.es">oficina@scr.es</a><br/>
+                    E-mail Fábrica: <a href="fabrica@scr.es">fabrica@scr.es</a>
+                    </div>
+                </div>
+            </div>
+        </template>
+
+        <template id="external_layout_quotation_footer">
+            <div class="footer">
+                <div class="row mt32 mb32">
+                    <p>Los datos contenidos en esta oferta tienen una validez de 3 meses.<br/>
+                    Los precios indicados en esta oferta no incluyen el IVA.<br/>
+                    Si en 30 días no se recibe contestación, esta oferta quedará anulada.<br/><br/>
+                    Aprovechamos la ocasión para enviarle un saludo muy cordial</p>
+                </div>
+                <div class="row mt32 mb32" style="border-top: 1px solid black;">
+                    <br/>
+                    <div class="col-xs-4">
+                        <img src='/extra_layouts/static/description/scr_aenor.png'/><br/>
+                        ER 1096/1999
+                    </div>
+                    <div class="col-xs-4">
+                        Firma Rble. Presupuestos:<br/>
+                        <img src='/extra_layouts/static/description/firma_felipe.png'/><br/>
+                        Felipe Castro Carballedo
+                    </div>
+                    <div class="col-xs-4">
+                        Firma Cliente:
+                    </div>
+                </div>
+            </div>      
+        </template>
+
+        <!-- Purchase order layout -->
+        <template id="external_layout_purchase">
+            <!-- Multicompany -->
+            <t t-if="o and 'company_id' in o">
+                <t t-set="company" t-value="o.company_id"></t>
+            </t>
+            <t t-if="not o or not 'company_id' in o">
+                <t t-set="company" t-value="res_company"></t>
+            </t>
+            <t t-call="extra_layouts.external_layout_purchase_header" />
+            <t t-raw="0" />
+            <t t-call="extra_layouts.external_layout_purchase_footer" />
+        </template>
+
+        <template id="external_layout_purchase_header">
+            <div class="header">
+                <div class="row">
+                    <div class="col-xs-4"> 
+                        <img src='/extra_layouts/static/description/logotiposcr.png' width="300"/><br/>
+                        <a href="http://www.scr.es">http://www.scr.es</a><br/>
+                        <strong>DC 7.4.1.01/01</strong>
+                    </div>
+                    <div class="col-xs-4">
+                        <strong> Oficina/Fábrica </strong><br/>
+                        Camiño da Fábrica, 12<br/>
+                        Ctra. Porriño-Gondomar, KM. 2<br/>                
+                        36419 Pereiras-Mos, Pontevedra
+                    </div>
+                    <div class="col-xs-4">
+                        <ul class="list-inline text-right">
+                            <li>Página</li>
+                            <li><span class="page"/></li>
+                            <li>de</li>
+                            <li><span class="topage"/></li>
+                        </ul>
+                        Tel: 986 33 00 51 / Fax: 986 33 53 68<br/>
+                        E-mail Oficina: <a href="oficina@scr.es">oficina@scr.es</a><br/>
+                        E-mail Fábrica: <a href="fabrica@scr.es">fabrica@scr.es</a>
+                    </div>
+                </div>
+            </div>
+        </template>
+
+        <template id="external_layout_purchase_footer">
+            <div class="footer">
+                <div class="row">
+                    <div class="col-xs-5 text-center" style="border: 1px solid black;height:90">
+                        Firma Revisión Orden de Compra:
+                    </div>
+                    <div class="col-xs-5 text-center pull-right" style="border: 1px solid black;height:90">
+                        Firma Revisión Recepción de Materiales:
+                    </div>
+                </div>
+            </div>      
+        </template>
+
+        <!-- Picking report layout (A4 and valued A4) -->
+        <template id="external_layout_stockpicking_a4">
+            <!-- Multicompany -->
+            <t t-if="o and 'company_id' in o">
+                <t t-set="company" t-value="o.company_id"></t>
+            </t>
+            <t t-if="not o or not 'company_id' in o">
+                <t t-set="company" t-value="res_company"></t>
+            </t>
+
+            <t t-call="extra_layouts.external_layout_stockpicking_a4_header" />
+            <t t-raw="0" />
+            <t t-call="extra_layouts.external_layout_stockpicking_a4_footer" />
+        </template>
+
+        <template id="external_layout_stockpicking_a4_header">
+            <div class="header">
+                <div class="row">
+                    <div class="col-xs-4">
+                        <img src='/extra_layouts/static/description/logo_scr.PNG'/><br/>
+                        <a href="http://www.scr.es">http://www.scr.es</a>
+                    </div>
+                    <div class="col-xs-4">
+                        <strong> Oficina/Fábrica </strong><br/>
+                        Camiño da Fábrica, 12<br/>
+                        Ctra. Porriño-Gondomar, Km. 2<br/>
+                        36419 Pereiras-Mos, Pontevedra
+                    </div>
+                    <div class="col-xs-4">
+                        <ul class="list-inline text-right">
+                            <li>Página</li>
+                            <li><span class="page"/></li>
+                            <li>de</li>
+                            <li><span class="topage"/></li>
+                        </ul>
+                        Tel: 986 33 00 51 / Fax: 986 33 53 68<br/>
+                        E-mail Oficina: <a href="oficina@scr.es">oficina@scr.es</a><br/>
+                        E-mail Fábrica: <a href="fabrica@scr.es">fabrica@scr.es</a>
+                    </div>
+                </div>
+            </div>
+        </template>
+
+        <template id="external_layout_stockpicking_a4_footer">
+            <div class="footer">
+                <div class="row">
+                    <div class="col-xs-4">
+                        <strong>El Transportista</strong>
+                    </div>
+                    <div class="col-xs-4 text-center">
+                        <strong>VBI</strong>
+                    </div>
+                    <div class="col-xs-4 text-right">
+                        <strong>Recibido, El Cliente</strong>
+                    </div>
+                </div>
+            </div>      
+        </template>
+
+    </data>
+</openerp>

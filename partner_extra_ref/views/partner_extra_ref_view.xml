@@ -1,0 +1,32 @@
+<openerp>
+    <data noupdate="1">
+        <record model="ir.sequence.type" id="res_partner_code_sequence">
+            <field name="name">Código Secuencia Cliente</field>
+            <field name="code">res.partner.sequence</field>
+        </record>
+        <record model="ir.sequence" id="res_partner_sequence">
+            <field name="name">Secuencia Cliente</field>
+            <field name="code">res.partner.sequence</field>
+            <field name="active">True</field>
+            <field name="prefix">430.</field>
+            <field name="number_increment">1</field>
+            <field name="number_next">807</field>
+            <field name="padding">4</field>
+            <field name="implementation">standard</field>
+        </record>
+        <record model="ir.sequence.type" id="res_partner_prov_code_sequence">
+            <field name="name">Código Secuencia Proveedor</field>
+            <field name="code">res.partner.prov.sequence</field>
+        </record>
+        <record model="ir.sequence" id="res_partner_prov_sequence">
+            <field name="name">Secuencia Proveedor</field>
+            <field name="code">res.partner.prov.sequence</field>
+            <field name="active">True</field>
+            <field name="prefix">400.</field>
+            <field name="number_increment">1</field>
+            <field name="number_next">695</field>
+            <field name="padding">4</field>
+            <field name="implementation">standard</field>
+        </record>
+    </data>
+</openerp>

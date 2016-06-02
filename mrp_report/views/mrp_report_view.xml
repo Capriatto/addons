@@ -1,0 +1,143 @@
+<openerp>
+    <data>
+        <!-- Inherit production order report (from mrp module) -->
+        <template id="custom_mrp_report" inherit_id="mrp.report_mrporder">
+
+            <xpath expr="//div[@class='page']" position="replace">
+                <div class="page">
+                <div class="oe_structure"/>
+                <div class="row">
+                    <div class="col-xs-2">
+                        <img src='/extra_layouts/static/description/logo2_scr.png' width="150"/><br/>
+                        <a href="http://www.scr.es">http://www.scr.es</a>
+                    </div>
+                    <div class="col-xs-3">
+                        <img t-att-src="'/report/barcode/?type=%s&amp;value=%s&amp;width=%s&amp;height=%s' % ('Code128', o.name, 600, 100)" style="width:220px;height:50px;"/>
+                    </div>
+                    <div class="col-xs-7" style="border: 1 px solid black">
+                        <strong>Nº DE ORDEN: <span t-field="o.name"/></strong><br/>
+                        Fecha de lanzamiento: <span t-field="o.date_start"/> Lanzada por: <span t-field="o.user_id"/><br/>
+                        Fecha prevista de realización: <span t-field="o.date_planned"/><br/>
+                        Fecha de cierre: ........................<br/>
+                        Centro de trabajo: <span t-field="o.routing_id"/>
+                    </div>
+                </div>
+                <div class="row mt25">
+                   <table class="table">
+                       <thead>
+                           <tr>
+                               <th>Referencia</th>
+                               <th>Descripción</th>
+                               <th>Cantidad</th>
+                               <th>Cliente</th>
+                               <th>Pedido</th>
+                           </tr>
+                       </thead>
+                       <tbody>
+                           <tr>
+                               <td><span t-field="o.product_id.code"/></td>
+                               <td><span t-field="o.product_id.name"/></td>
+                               <td><span t-field="o.product_qty"/> <span t-field="o.product_uom.name" groups="product.group_uom"/></td>
+                               <td><span t-field="o.sale_ref"/></td>
+                               <td><span t-field="o.sale_name"/></td>
+                           </tr>
+                       </tbody>
+                   </table>
+                </div>
+                <div class="row">
+                   <table class="table">
+                       <thead>
+                           <tr>
+                               <th class="text-center" style="border: 1px solid black">Fecha</th>
+                               <th class="text-center" style="border: 1px solid black">Hora de inicio</th>
+                               <th class="text-center" style="border: 1px solid black">Hora de fin</th>
+                               <th class="text-center" style="border: 1px solid black">Unidades/Lote</th>
+                               <th class="text-center" style="border: 1px solid black">Nº de lotes</th>
+                               <th class="text-center" style="border: 1px solid black; width:400">Operarios</th>
+                           </tr>
+                       </thead>
+                       <tbody>
+                           <tr style="height:25">
+                               <td style="border: 1px solid black"></td>
+                               <td style="border: 1px solid black"></td>
+                               <td style="border: 1px solid black"></td>
+                               <td style="border: 1px solid black"></td>
+                               <td style="border: 1px solid black"></td>
+                               <td style="border: 1px solid black"></td>
+                           </tr>
+                           <tr style="height:25">
+                               <td style="border: 1px solid black"></td>
+                               <td style="border: 1px solid black"></td>
+                               <td style="border: 1px solid black"></td>
+                               <td style="border: 1px solid black"></td>
+                               <td style="border: 1px solid black"></td>
+                               <td style="border: 1px solid black"></td>
+                           </tr>
+                           <tr style="height:25">
+                               <td style="border: 1px solid black"></td>
+                               <td style="border: 1px solid black"></td>
+                               <td style="border: 1px solid black"></td>
+                               <td style="border: 1px solid black"></td>
+                               <td style="border: 1px solid black"></td>
+                               <td style="border: 1px solid black"></td>
+                           </tr>
+                           <tr style="height:25">
+                               <td></td>
+                               <td></td>
+                               <td></td>
+                               <td style="border: 1px solid black">Unidades totales:</td>
+                               <td style="border: 1px solid black"></td>
+                               <td></td>
+                           </tr>
+                       </tbody>
+                   </table>
+                </div>
+                <div class="row">
+                    <div class="col-xs-8 pull-left">
+                        <table class="table table-condensed">
+                            <thead>
+                                <tr>
+                                    <th class="text-left">INCIDENCIAS</th>
+                                    <th class="text-center">Hora inicio</th>
+                                    <th class="text-center">Hora fin</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr style="height:25">
+                                    <td class="text-left"><input type="checkbox"/> Preparación máquina</td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                                <tr style="height:25">
+                                    <td class="text-left"><input type="checkbox"/> Mantenimiento</td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                                <tr style="height:25">
+                                    <td class="text-left"><input type="checkbox"/> Limpieza</td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                                <tr style="height:25">
+                                    <td class="text-left"><input type="checkbox"/> Averías</td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                                <tr style="height:25">
+                                    <td class="text-left"><input type="checkbox"/> Otras</td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="col-xs-4 pull-right text-center" style="border: 1px solid black; height:210">
+                        Vº Bº ENCARGADO
+                    </div>
+                </div>
+                </div>
+            </xpath>
+
+        </template>
+    </data>
+</openerp>

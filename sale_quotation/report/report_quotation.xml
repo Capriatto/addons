@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        <template id="quotation_document">
+            <t t-call="report.html_container">
+            <t t-foreach="docs" t-as="o">
+            <t t-call="extra_layouts.external_layout_quotation">
+                <div class="page" style="font-size:16px">
+                    <div class="row mt32 mb32">
+                        <div class="col-xs-9">
+                            <span><strong>Número de la Oferta: </strong><span t-field="o.name"/><br/></span>
+                            <span><strong>Nombre del Cliente: </strong><span t-field="o.partner_id.name"/><br/></span>
+                            <span><strong>Persona de contacto: </strong><span t-field="o.interloc"/><br/></span>
+                            <span><strong>E-mail: </strong><span t-field="o.email"/><br/></span>
+                        </div>
+                        <div class="col-xs-3">
+                            <span><strong>Fecha: </strong><span t-field="o.date_order" t-field-options="{&quot;format&quot;: &quot;dd/MM/yyyy&quot;}"/><br/></span>
+                            <span><strong>Tlf: </strong><span t-field="o.phone"/><br/></span>
+                            <span><strong>Nº Fax: </strong><span t-field="o.fax"/></span>
+                        </div>
+                    </div>
+                    <div class="row mt32 mb32">
+                        <div class="col-xs-12">
+                            <span>Tenemos el agrado de enviarle la oferta correspondiente a los productos que se detallan: </span>
+                        </div>
+                    </div>
+                    <table class="table table-condensed">
+                        <thead>
+                            <tr>
+                                <th>Descripción</th>
+                                <th class="text-right">Cantidad</th>
+                                <th class="text-right">Precio unitario</th>
+                            </tr>
+                        </thead>
+                        <tbody class="sale_tbody">
+                            <tr t-foreach="o.order_line" t-as="l">
+                                <td>
+                                    <span t-field="l.name"/>
+                                </td>
+                                <td class="text-right">
+                                    <span t-field="l.product_uom_qty"/>
+                                    <span groups="product.group_uom" t-field="l.product_uom"/>
+                                </td>
+                                <td class="text-right">
+                                    <span t-field="l.price_unit" t-field-options='{"widget": "monetary", "display_currency": "o.pricelist_id.currency_id"}'/>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+          
+                    <div class="row mt32 mb32">
+                        <div class="col-xs-12">
+                            <t t-if="o.tipo_madera != 'otro'">
+                                <span t-if="o.tipo_madera"><strong>Tipo de madera: </strong><span t-field="o.tipo_madera"/><br/><br/></span>
+                            </t>
+                            <span t-if="o.tipo_madera_otro"><strong>Tipo de madera: </strong><span t-field="o.tipo_madera_otro"/><br/><br/></span>
+                            <t t-if="o.cant_min != 'otro'">
+                                <span t-if="o.cant_min"><strong>Cantidades mínimas: </strong><span t-field="o.cant_min"/><br/><br/></span>
+                            </t>
+                            <span t-if="o.cant_min_otro"><strong>Cantidades mínimas: </strong><span t-field="o.cant_min_otro"/><br/><br/></span>
+                            <t t-if="o.calidad_madera != 'otro'">
+                                <span t-if="o.calidad_madera"><strong>Calidad de la madera: </strong><span t-field="o.calidad_madera"/><br/><br/></span>
+                            </t>
+                            <span t-if="o.calidad_madera_otro"><strong>Calidad de la madera: </strong><span t-field="o.calidad_madera_otro"/><br/><br/></span>
+                            <span t-if="o.humedad_madera"><strong>Humedad de la madera: </strong><span t-field="o.humedad_madera"/><br/><br/></span>
+                            <span t-if="o.transporte"><strong>Inclusión del transporte: </strong><span t-field="o.transporte"/><br/><br/></span>
+                            <span t-if="o.plazo_entrega"><strong>Plazo de entrega: </strong><span t-field="o.plazo_entrega"/><br/><br/></span>
+                            <t t-if="o.frec_entregas != 'otro'">
+                                <span t-if="o.frec_entregas"><strong>Frecuencia de las entregas: </strong><span t-field="o.frec_entregas"/><br/><br/></span>
+                            </t>
+                            <span t-if="o.frec_entregas_otro"><strong>Frecuencia de las entregas: </strong><span t-field="o.frec_entregas"/><br/><br/></span>
+                            <t t-if="o.condiciones_pago != 'otro'">
+                            <span t-if="o.condiciones_pago"><strong>Condiciones de pago: </strong><span t-field="o.condiciones_pago"/><br/><br/></span>
+                            </t>
+                            <span t-if="o.condiciones_pago_otro"><strong>Condiciones de pago: </strong><span t-field="o.condiciones_pago_otro"/><br/><br/></span>
+                            <t t-if="o.otras_consideraciones != 'otro'">
+                                <span t-if="o.otras_consideraciones"><strong>Otras consideraciones: </strong><span t-field="o.otras_consideraciones"/></span>
+                            </t>
+                            <span t-if="o.otras_consideraciones_otro"><strong>Otras consideraciones: </strong><span t-field="o.otras_consideraciones_otro"/></span>
+                        </div>
+                    </div>
+
+                    <t t-if="o.inc_imagen == True">
+                        <div style="page-break-after:always"></div>
+                        <div class="row mt0 mb0">
+                            <span t-field="o.product_id.image" t-field-options="{&quot;widget&quot;: &quot;image&quot;, &quot;class&quot;: &quot;img-rounded&quot;}"/>
+                        </div>
+                    </t>
+                </div>
+            </t>
+            </t>
+            </t>
+        </template>
+
+        <template id="quotation">
+            <t t-call="report.html_container">
+                <t t-foreach="doc_ids" t-as="doc_id">
+                    <t t-raw="translate_doc(doc_id, doc_model, 'partner_id.lang', 'sale_quotation.quotation_document')"/>
+                </t>
+            </t>
+        </template>
+    </data>
+</openerp>

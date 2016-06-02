@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+
+        <!-- Add the payment mode type settings -->
+        <record id="view_payment_mode_form_inherit" model="ir.ui.view">
+            <field name="name">payment.mode.form.inherit</field>
+            <field name="model">payment.mode</field>
+            <field name="priority" eval="100"/>
+            <field name="inherit_id" ref="account_payment.view_payment_mode_form"/>
+            <field name="arch" type="xml">
+                <field name="partner_id" position="after">
+                    <group colspan="4" col="1">
+                        <group string="Options"
+                               attrs="{'invisible': [('is_pagosprov', '=', False)]}">
+                            <field name="is_pagosprov" invisible="1"/>
+                            <field name="pagosprov_type" colspan="2"/>
+                            <group string="Additional data for type of payment file.">
+                                <field name="pagosprov_cost_key"/>
+                                <field name="pagosprov_concept"/>
+                                <field name="pagosprov_direct_pay_order"/>
+                            </group>
+                            <group attrs="{'invisible': [('pagosprov_type', '=', 'transfer')]}"
+                                   string="Additional data for promissory notes, checks, and certified payments.">
+                                <field name="pagosprov_send_type" attrs="{'required': [('pagosprov_type','!=','transfer')]}"/>
+                                <field name="pagosprov_not_to_the_order"/>
+                                <field name="pagosprov_barred"/>
+                            </group>
+                            <group attrs="{'invisible': [('pagosprov_send_type', '=', 'other')]}"
+                                   string="Optional Text for the Letter (adds 101, 102, 103, data types in the file)">
+                                <field name="pagosprov_text1"/>
+                                <field name="pagosprov_text2"/>
+                                <field name="pagosprov_text3"/>
+                                <field name="pagosprov_payroll_check"/>
+                                <field name="pagosprov_add_date"/>
+                            </group>
+                        </group>
+                    </group>
+                </field>
+            </field>
+        </record>
+
+    </data>
+</openerp>

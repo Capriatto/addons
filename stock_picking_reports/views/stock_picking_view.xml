@@ -1,0 +1,95 @@
+<openerp>
+    <data>
+
+      <record id="stock_picking_reports" model="ir.ui.view">
+        <field name="name">stock.picking.reports</field>
+        <field name="model">stock.picking</field>
+        <field name="inherit_id" ref="delivery.view_picking_withcarrier_out_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='carrier_tracking_ref']" position="after">
+                <field name="deliver"/>
+            </xpath>
+        </field>
+      </record>
+      
+      <!-- Stock picking A5 -->
+      <record model="ir.actions.report.xml" id="stock_picking_a5">
+        <field name="name">Albarán A5</field>
+        <field name="model">stock.picking</field>
+        <field name="report_type">qweb-pdf</field>    
+        <field name="report_name">stock_picking_reports.report_stockpicking_a5</field>
+      </record>
+
+      <report
+        id="stock_picking_a5"
+        model="stock.picking"
+        string="Albarán A5"
+        report_type="qweb-pdf"
+        name="stock_picking_reports.report_stockpicking_a5"
+        file="stock_picking_reports.report_stockpicking_a5"
+      />
+
+      <!-- Stock picking A4 -->
+        <record model="ir.actions.report.xml" id="stock_picking_a4">
+            <field name="name">Albarán</field>
+            <field name="model">stock.picking</field>
+            <field name="report_type">qweb-pdf</field>
+            <field name="report_name">stock_picking_reports.report_stockpicking_a4</field>
+        </record>
+
+        <report
+            id="stock_picking_a4"
+            model="stock.picking"
+            string="Albarán"
+            report_type="qweb-pdf"
+            name="stock_picking_reports.report_stockpicking_a4"
+            file="stock_picking_reports.report_stockpicking_a4"
+        />
+
+        <!-- Hides original picking report from print menu -->
+        <report
+            string="Picking"
+            id="stock.action_report_picking"
+            model="stock.picking"
+            report_type="qweb-pdf"
+            name="stock.report_picking"
+            file="stock.report_picking"
+            menu="False"
+        />
+
+        <!-- Stock picking A4 valued -->
+        <record model="ir.actions.report.xml" id="stock_picking_a4_valued">
+            <field name="name">Albarán Valorado</field>
+            <field name="model">stock.picking</field>
+            <field name="report_type">qweb-pdf</field>
+            <field name="report_name">stock_picking_reports.report_stockpicking_a4_valued</field>
+        </record>
+
+        <report
+            id="stock_picking_a4_valued"
+            model="stock.picking"
+            string="Albarán Valorado"
+            report_type="qweb-pdf"
+            name="stock_picking_reports.report_stockpicking_a4_valued"
+            file="stock_picking_reports.report_stockpicking_a4_valued"
+        />
+
+        <!-- Stock picking A5 valued -->
+        <record model="ir.actions.report.xml" id="stock_picking_a5_valued">
+            <field name="name">Albarán A5 Valorado</field>
+            <field name="model">stock.picking</field>
+            <field name="report_type">qweb-pdf</field>    
+            <field name="report_name">stock_picking_reports.report_stockpicking_a5_valued</field>
+        </record>
+
+        <report
+            id="stock_picking_a5_valued"
+            model="stock.picking"
+            string="Albarán A5 Valorado"
+            report_type="qweb-pdf"
+            name="stock_picking_reports.report_stockpicking_a5_valued"
+            file="stock_picking_reports.report_stockpicking_a5_valued"
+        />
+
+    </data>
+</openerp>

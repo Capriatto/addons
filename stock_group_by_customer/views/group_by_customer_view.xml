@@ -1,0 +1,14 @@
+<openerp>
+    <data>
+        <record id="group_by_customer_view" model="ir.ui.view">
+            <field name="name">Search</field>
+            <field name="model">stock.picking</field>
+            <field name="inherit_id" ref="stock.view_picking_internal_search"/>
+            <field name="arch" type="xml">
+                <group string="Group By" position="inside">
+                    <filter string="Customer" context="{'group_by':'partner_id'}"/>
+                </group>
+            </field>
+        </record>
+    </data>
+</openerp>

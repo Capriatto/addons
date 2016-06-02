@@ -1,0 +1,51 @@
+<openerp>
+    <data>
+        <record id="sale_quotation_view" model="ir.ui.view">
+            <field name="name">sale.quotation.view</field>
+            <field name="model">sale.order</field>
+            <field name="inherit_id" ref="sale.view_order_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='project_id']" position="after">
+                    <field name="interloc"/>
+                </xpath>
+                <xpath expr="//page[@string='Other Information']" position="after">
+                    <page string="Ofertas">
+                        <group>
+                            <group>
+                                <field name="email"/>
+                                <field name="phone"/>
+                                <field name="fax"/>
+                            </group>
+                            <group>
+                                <field name="inc_imagen"/>
+                            </group>
+                        </group>
+                        <group string="Características de la oferta">
+                            <group>
+                                <field name="tipo_madera"/>
+                                <field name="tipo_madera_otro" attrs="{'invisible':[('tipo_madera', '!=', 'otro')]}"/>
+                                <field name="cant_min"/>
+                                <field name="cant_min_otro" attrs="{'invisible':[('cant_min', '!=', 'otro')]}"/>
+                                <field name="calidad_madera"/>
+                                <field name="calidad_madera_otro" attrs="{'invisible':[('calidad_madera', '!=', 'otro')]}"/>
+                                <field name="humedad_madera"/>
+                            </group>
+                            <group>
+                                <field name="transporte"/>
+                                <field name="plazo_entrega"/>
+                                <field name="frec_entregas"/>
+                                <field name="frec_entregas_otro" attrs="{'invisible':[('frec_entregas', '!=', 'otro')]}"/>
+                                <field name="condiciones_pago"/>
+                                <field name="condiciones_pago_otro" attrs="{'invisible':[('condiciones_pago', '!=', 'otro')]}"/>
+                            </group>
+                        </group>
+                        <group>
+                            <field name="otras_consideraciones"/>
+                            <field name="otras_consideraciones_otro" attrs="{'invisible':[('otras_consideraciones', '!=', 'otro')]}"/>
+                        </group>
+                    </page>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</openerp>
