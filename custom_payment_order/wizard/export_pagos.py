@@ -18,8 +18,8 @@ from .converter import PaymentConverterSpain
 from .pagosprov import PagosProv
 
 
-class BankingExportPagosProvWizard(models.TransientModel):
-    _name = 'banking.export.pagos.prov.wizard'
+class BankingExportPagosWizard(models.TransientModel):
+    _name = 'banking.export.pagos.wizard'
     _description = 'Exportar archivo de pagos a proveedores'
 
     join = fields.Boolean(
@@ -38,7 +38,7 @@ class BankingExportPagosProvWizard(models.TransientModel):
         vals.update({
             'payment_order_ids': [(6, 0, payment_order_ids)],
         })
-        return super(BankingExportPagosProvWizard, self).create(vals)
+        return super(BankingExportPagosWizard, self).create(vals)
 
     @api.model
     def _get_pagos_exporter(self, payment_order):
