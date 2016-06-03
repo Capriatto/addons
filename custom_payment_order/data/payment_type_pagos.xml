@@ -7,7 +7,7 @@
         <field name="code">pagosprov</field>
         <field name="suitable_bank_types"
                eval="[(6,0,[ref('base.bank_normal')])]" />
-        <field name="ir_model_id" ref="model_banking_export_pagosprov_wizard"/>
+        <field name="ir_model_id" ref="model_banking_export_pagos_wizard"/>
         <field name="payment_order_type">payment</field>
     </record>
 
