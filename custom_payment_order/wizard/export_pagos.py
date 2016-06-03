@@ -19,7 +19,7 @@ from .pagosprov import PagosProv
 
 
 class BankingExportPagosProvWizard(models.TransientModel):
-    _name = 'banking.export.pavos.prov.wizard'
+    _name = 'banking.export.pagos.prov.wizard'
     _description = 'Exportar archivo de pagos a proveedores'
 
     join = fields.Boolean(
