@@ -13,7 +13,7 @@
     "depends": [
         "base",
         "stock",
-        "email_template"
+        "email_template",
         "stock_picking_reports",
     ],
     "data": [
