@@ -23,8 +23,8 @@
         "account_direct_debit",
     ],
     "data": [
+        "wizard/export_pagos_view.xml",
         "data/payment_type_pagos.xml",
         "views/payment_mode_view.xml",
-        "wizard/export_pagos_view.xml",
     ],
 }
