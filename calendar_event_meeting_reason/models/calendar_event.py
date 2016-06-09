@@ -12,7 +12,7 @@ class CalendarEvent(models.Model):
     	ondelete="restrict")
 
 class CalendarEventMeetingReason(models.Model):
-	_name = 'calendar_event_meeting_reason'
+	_name = 'calendar.event.meeting.reason'
 	_description = 'Calendar Event Meeting Reason'
 
 	name = fields.Char('Reason', required=False, translate=True)
