@@ -14,8 +14,8 @@
         "base",
         "calendar",
     ],
-    #TO DO - Add reasons as data, and let user introduce more reasons
     "data": [
         "views/meeting_reason_view.xml",
+        "data/meeting_reason.xml",
     ],
 }

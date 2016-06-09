@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data noupdate="1">
+        <record id="meeting_reason_request" model="calendar.event.meeting.reason">
+            <field name="name">Customer request</field>
+        </record>
+        <record id="meeting_reason_quotation" model="calendar.event.meeting.reason">
+            <field name="name">Quotation request</field>
+        </record>
+        <record id="meeting_reason_followup" model="calendar.event.meeting.reason">
+            <field name="name">Customer follow up</field>
+        </record>
+        <record id="meeting_reason_handover" model="calendar.event.meeting.reason">
+            <field name="name">Hand over quotation</field>
+        </record>
+    </data>
+</openerp>
