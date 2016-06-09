@@ -15,4 +15,4 @@ class CalendarEventMeetingReason(models.Model):
 	_name = 'calendar_event_meeting_reason'
 	_description = 'Calendar Event Meeting Reason'
 
-	name = field.Char('Reason', required=False, translate=True)
+	name = fields.Char('Reason', required=False, translate=True)
