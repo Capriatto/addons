@@ -1,0 +1,48 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* calendar_event_meeting_reason
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 8.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2016-06-09 10:34+0000\n"
+"PO-Revision-Date: 2016-06-09 12:38+0200\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: \n"
+"Language: es\n"
+"X-Generator: Poedit 1.8.6\n"
+
+#. module: calendar_event_meeting_reason
+#: selection:calendar.event,reason:0
+msgid "Customer request"
+msgstr "Petición del cliente"
+
+#. module: calendar_event_meeting_reason
+#: model:ir.model,name:calendar_event_meeting_reason.model_calendar_event
+msgid "Event"
+msgstr "Evento"
+
+#. module: calendar_event_meeting_reason
+#: selection:calendar.event,reason:0
+msgid "Follow up"
+msgstr "Seguimiento comercial"
+
+#. module: calendar_event_meeting_reason
+#: selection:calendar.event,reason:0
+msgid "Hand over quotation"
+msgstr "Entrega de presupuesto"
+
+#. module: calendar_event_meeting_reason
+#: field:calendar.event,reason:0
+msgid "Meeting reason"
+msgstr "Motivo de la reunión"
+
+#. module: calendar_event_meeting_reason
+#: selection:calendar.event,reason:0
+msgid "Quotation request"
+msgstr "Petición de presupuesto"
