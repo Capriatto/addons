@@ -1,0 +1,44 @@
+<openerp>
+    <data>
+        <record id="crm_claim_costs_view" model="ir.ui.view">
+            <field name="name">crm.claim.costs.view</field>
+            <field name="model">crm.claim</field>
+            <field name="inherit_id" ref="crm_claim.crm_case_claims_form_view"/>
+            <field name="arch" type="xml">
+                <xpath expr="//page[@string='Follow Up']" position="after">
+                    <page string="Costs">
+                        <group string="Claim costs">
+                            <group>
+                                <group>
+                                    <field name="collect_mat"/>
+                                    <field name="repair_mat"/>
+                                    <field name="deliver_mat"/>
+                                </group>
+                                <group>
+                                    <field name="disc_perc"/><field name="discount"/>
+                                    <field name="refund"/>
+                                </group>
+                                <group>
+                                    <field name="other"/><field name="other_quant"/>
+                                </group>
+                            </group>
+                        </group>
+                        <group string="Total cost">
+                            <field name="claim_tot"/>
+                        </group>
+                    </page>
+                </xpath>
+            </field>
+        </record>
+        <record model="ir.ui.view" id="crm_case_claims_tree_view_inh">
+            <field name="name">crm.case.claims.tree.view.inh</field>
+            <field name="model">crm.claim</field>
+            <field name="inherit_id" ref="crm_claim.crm_case_claims_tree_view" />
+            <field name="arch" type="xml">
+                <field name="categ_id" position="after">
+                    <field name="claim_tot" />
+                </field>
+            </field>
+        </record>
+    </data>
+</openerp>
