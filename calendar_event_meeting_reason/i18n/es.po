@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 8.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-06-09 10:34+0000\n"
-"PO-Revision-Date: 2016-06-09 12:38+0200\n"
+"POT-Creation-Date: 2016-06-10 07:35+0000\n"
+"PO-Revision-Date: 2016-06-10 09:36+0200\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -18,9 +18,35 @@ msgstr ""
 "X-Generator: Poedit 1.8.6\n"
 
 #. module: calendar_event_meeting_reason
-#: selection:calendar.event,reason:0
+#: model:ir.actions.act_window,name:calendar_event_meeting_reason.action_calendar_event_meeting_reason
+#: model:ir.model,name:calendar_event_meeting_reason.model_calendar_event_meeting_reason
+msgid "Calendar Event Meeting Reason"
+msgstr "Calendar Event Meeting Reason"
+
+#. module: calendar_event_meeting_reason
+#: field:calendar.event.meeting.reason,create_uid:0
+msgid "Created by"
+msgstr "Created by"
+
+#. module: calendar_event_meeting_reason
+#: field:calendar.event.meeting.reason,create_date:0
+msgid "Created on"
+msgstr "Created on"
+
+#. module: calendar_event_meeting_reason
+#: model:calendar.event.meeting.reason,name:calendar_event_meeting_reason.meeting_reason_followup
+msgid "Customer follow up"
+msgstr "Seguimiento comercial"
+
+#. module: calendar_event_meeting_reason
+#: model:calendar.event.meeting.reason,name:calendar_event_meeting_reason.meeting_reason_request
 msgid "Customer request"
 msgstr "Petición del cliente"
+
+#. module: calendar_event_meeting_reason
+#: field:calendar.event.meeting.reason,display_name:0
+msgid "Display Name"
+msgstr "Display Name"
 
 #. module: calendar_event_meeting_reason
 #: model:ir.model,name:calendar_event_meeting_reason.model_calendar_event
@@ -28,21 +54,52 @@ msgid "Event"
 msgstr "Evento"
 
 #. module: calendar_event_meeting_reason
-#: selection:calendar.event,reason:0
-msgid "Follow up"
-msgstr "Seguimiento comercial"
-
-#. module: calendar_event_meeting_reason
-#: selection:calendar.event,reason:0
+#: model:calendar.event.meeting.reason,name:calendar_event_meeting_reason.meeting_reason_handover
 msgid "Hand over quotation"
 msgstr "Entrega de presupuesto"
 
 #. module: calendar_event_meeting_reason
-#: field:calendar.event,reason:0
+#: field:calendar.event.meeting.reason,id:0
+msgid "ID"
+msgstr "ID"
+
+#. module: calendar_event_meeting_reason
+#: field:calendar.event.meeting.reason,__last_update:0
+msgid "Last Modified on"
+msgstr "Last Modified on"
+
+#. module: calendar_event_meeting_reason
+#: field:calendar.event.meeting.reason,write_uid:0
+msgid "Last Updated by"
+msgstr "Last Updated by"
+
+#. module: calendar_event_meeting_reason
+#: field:calendar.event.meeting.reason,write_date:0
+msgid "Last Updated on"
+msgstr "Last Updated on"
+
+#. module: calendar_event_meeting_reason
+#: view:calendar.event.meeting.reason:calendar_event_meeting_reason.view_calendar_event_meeting_reason_form
+#: view:calendar.event.meeting.reason:calendar_event_meeting_reason.vview_calendar_event_meeting_reason_tree
+msgid "Meeting Reasons"
+msgstr "Motivos de las reuniones"
+
+#. module: calendar_event_meeting_reason
+#: field:calendar.event,meeting_reason_id:0
 msgid "Meeting reason"
 msgstr "Motivo de la reunión"
 
 #. module: calendar_event_meeting_reason
-#: selection:calendar.event,reason:0
+#: model:ir.ui.menu,name:calendar_event_meeting_reason.menu_calendar_event_meeting_reason
+msgid "Meeting reasons"
+msgstr "Motivos de las reuniones"
+
+#. module: calendar_event_meeting_reason
+#: model:calendar.event.meeting.reason,name:calendar_event_meeting_reason.meeting_reason_quotation
 msgid "Quotation request"
 msgstr "Petición de presupuesto"
+
+#. module: calendar_event_meeting_reason
+#: field:calendar.event.meeting.reason,name:0
+msgid "Reason"
+msgstr "Motivo"
