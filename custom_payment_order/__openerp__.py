@@ -17,7 +17,7 @@
     "author": "Sandra Figueroa Varela",
     "license": "AGPL-3",
     "application": False,
-    "installable": True,
+    "installable": False,
     "depends": [
         "base",
         "account_direct_debit",
