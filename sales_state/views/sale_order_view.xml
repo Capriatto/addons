@@ -1,28 +1,54 @@
 <openerp>
     <data>
+
         <record id="my_quotation_form" model="ir.ui.view">
             <field name="name">sale.order.form</field>
             <field name="model">sale.order</field>
             <field name="inherit_id" ref="sale.view_order_form"/>
             <field name="arch" type="xml">
-                    <button name="action_quotation_send" position="before">
-                        <button name="approve_quotation" string="Approve" states="draft"
-                            type="workflow" class="oe_highlight" groups="base.group_user"/>
-                    </button>
-                    <button name="action_quotation_send" position="attributes">
-                        <attribute name="states">draft,quotation_approved,sent,progress,manual</attribute>
-                    </button>
-                    <button name="action_button_confirm" position="attributes">
-                        <attribute name="states">quotation_approved,sent,progress,manual</attribute>
-                    </button>
-                    <button name="print_quotation" position="attributes">
-                        <attribute name="states">draft,quotation_approved,sent,progress,manual</attribute>
-                    </button>
-                    <field name="state" position="attributes">
-                        <attribute name="statusbar_visible">draft,quotation_approved,sent,progress,done</attribute>
-                    </field>  
+                <button name="action_quotation_send" position="before">
+                    <button name="para_valorar"
+                            states="draft"
+                            string="Valorar"
+                            type="workflow"
+                            class="oe_highlight"
+                            groups="base.group_user"/>
+                    <button name="valorado"
+                            states="para_valorar"
+                            string="Valorado"
+                            type="workflow"
+                            class="oe_highlight"
+                            groups="base.group_user"/>
+                </field>
             </field>
         </record>
+
+        <record id="act_quotation_valorar" model="workflow.activity">
+            <field name="wkf_id" ref="sale.wkf_sale"/>
+            <field name="name">Valorar</field>
+            <field name="kind">function</field>
+            <field name="action">action_quotation_valorar()</field>
+        </record>
+
+        <record id="act_quotation_valorado" model="workflow.activity">
+            <field name="wkf_id" ref="sale.wkf_sale"/>
+            <field name="name">Valorado</field>
+            <field name="kind">function</field>
+            <field name="action">action_quotation_valorado()</field>
+        </record>
+        
+        <record id="trans_quotation_draft_to_valorar" model="workflow.transition">
+            <field name="act_from" ref="sale.act_draft"/>
+            <field name="act_to" ref="act_quotation_valorar"/>
+            <field name="signal">para_valorar</field>
+        </record>
+
+        <record id="trans_quotation_valorar_to_valorado" model="workflow.transition">
+            <field name="act_from" ref="act_quotation_valorar"/>
+            <field name="act_to" ref="act_quotation_valorado"/>
+            <field name="signal">valorado</field>
+        </record>
+
 
     </data>
 </openerp>
