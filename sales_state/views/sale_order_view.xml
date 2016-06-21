@@ -12,7 +12,7 @@
                     <button name="action_quotation_send" position="attributes">
                         <attribute name="states">draft,quotation_approved,sent,progress,manual</attribute>
                     </button>
-                    <button name="action_quotation_confirm" position="attributes">
+                    <button name="action_button_confirm" position="attributes">
                         <attribute name="states">quotation_approved,sent,progress,manual</attribute>
                     </button>
                     <button name="print_quotation" position="attributes">
