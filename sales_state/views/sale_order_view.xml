@@ -1,30 +1,24 @@
 <openerp>
 	<data>
-		<record id="action_quotation_valorar" model="workflow.activity">
+		<record id="action_quotation_valorado" model="workflow.activity">
         	<field name="wkf_id" ref="sale.wkf_sale"/>
-        	<field name="name">valorar</field>
+        	<field name="name">valorado</field>
         	<field name="kind">function</field>
-       		<field name="action">action_quotation_valorar()</field>
+       		<field name="action">action_quotation_valorado()</field>
 		</record>
-        <record id="action_quotation_valorado" model="workflow.activity">
-            <field name="wkf_id" ref="sale.wkf_sale"/>
-            <field name="name">valorado</field>
-            <field name="kind">function</field>
-            <field name="action">action_quotation_valorado()</field>
-        </record>
 
         <!-- Create transitions -->
-        <!-- From Draft to Pendiente valorar -->
-		<record model="workflow.transition" id="trans_quotation_draft_to_valorar">
+        <!-- From Draft to Valorado -->
+		<record model="workflow.transition" id="trans_quotation_draft_to_valorado">
         	<field name="act_from" ref="sale.act_draft" />
-       		<field name="act_to" ref="action_quotation_valorar" />
-        	<field name="signal">button_para_valorar</field>
+       		<field name="act_to" ref="action_quotation_valorado" />
+        	<field name="signal">button_valorado</field>
         </record>
-        <!-- From Pendiente valorar to Quotation Sent -->
-        <record model="workflow.transition" id="trans_quotation_valorar_to_valorado">
+        <!-- From Valorado to Quotation Sent -->
+        <record model="workflow.transition" id="trans_quotation_valorar_to_sent">
             <field name="act_from" ref="action_quotation_valorar" />
-            <field name="act_to" ref="action_quotation_valorado" />
-            <field name="signal">button_valorado</field>
+            <field name="act_to" ref="sale.act_sent" />
+            <field name="signal">signal_quotation_sent</field>
         </record>
 
 
@@ -34,18 +28,16 @@
             <field name="inherit_id" ref="sale.view_order_form"/>
             <field name="arch" type="xml">
                 <field name="state" position="replace">
-                    <field name="state" widget="statusbar" statusbar_visible="draft,valorar,sent,invoiced,done" statusbar_colors='{"invoice_except":"red","waiting_date":"blue"}'/>
+                    <field name="state" widget="statusbar" statusbar_visible="draft,valorado,sent,invoiced,done" statusbar_colors='{"invoice_except":"red","waiting_date":"blue"}'/>
                 </field>
 
                 <field name="state" position="before">
                     <!-- From draft to new state -->
-                    <button string="Pendiente valorar" type="workflow" name="button_para_valorar" states="draft" class="oe_highlight"/>
-
-                    <!-- From new state to Quotation Sent >
-                    <button string="Mark as sent" type="workflow" name="signal_quotation_sent" states="valorar" class="oe_highlight"/--> 
+                    <button string="Valorado" type="workflow" name="button_valorado" states="draft" class="oe_highlight"/>
 
                     <!-- From new state to Quotation Sent -->
-                    <button string="Valorado" type="workflow" name="button_valorado" states="valorar" class="oe_highlight"/> 
+                    <button string="Enviado" type="workflow" name="signal_quotation_sent" states="valorado" class="oe_highlight"/> 
+
 
                 </field>
                 <!--button name="action_quotation_send" position="before">
