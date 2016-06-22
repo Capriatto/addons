@@ -7,27 +7,52 @@
        		<field name="action">action_quotation_valorar()</field>
 		</record>
 
+        <!-- Create transitions -->
+        <!-- From Draft to Pendiente valorar -->
 		<record model="workflow.transition" id="trans_quotation_draft_to_valorar">
         	<field name="act_from" ref="sale.act_draft" />
        		<field name="act_to" ref="action_quotation_valorar" />
         	<field name="signal">button_para_valorar</field>
-    </record>
+        </record>
+        <!-- From Pendiente valorar to Quotation Sent -->
+        <record model="workflow.transition" id="trans_quotation_valorar_to_sent">
+            <field name="act_from" ref="action_quotation_valorar" />
+            <field name="act_to" ref="sale.act_sent" />
+            <field name="signal">signal_quotation_sent</field>
+        </record>
+
 
     <record id="my_quotation_form" model="ir.ui.view">
             <field name="name">sale.order.form</field>
             <field name="model">sale.order</field>
             <field name="inherit_id" ref="sale.view_order_form"/>
             <field name="arch" type="xml">
-                <button name="action_quotation_send" position="before">
+                <field name="state" position="replace">
+                    <field name="state" widget="statusbar" statusbar_visible="draft,valorar,sent,invoiced,done" statusbar_colors='{"invoice_except":"red","waiting_date":"blue"}'/>
+                </field>
+
+                <field name="state" position="before">
+                    <!-- From draft to new state -->
+                    <button string="Pendiente valorar" type="workflow" name="button_para_valorar" states="draft" class="oe_highlight"/>
+
+                    <!-- From new state to Quotation Sent -->
+                    <button string="Mark as sent" type="workflow" name="signal_quotation_sent" states="valorar" class="oe_highlight"/> 
+
+                </field>
+                <!--button name="action_quotation_send" position="before">
                     <button name="button_para_valorar"
                             states="draft"
                             string="Valorar"
                             type="workflow"
                             class="oe_highlight"
                             groups="base.group_user"/>
-                </button>
+                </button-->
             </field>
         </record>
+
+
+   
+
 
 	</data>
 </openerp>
