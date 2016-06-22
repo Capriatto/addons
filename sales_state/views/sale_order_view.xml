@@ -49,8 +49,9 @@
                 <button name="action_quotation_send" position="before">
                         <button name="button_valorado" string="Valorado" states="draft"
                                 type="workflow" class="oe_highlight" groups="base.group_user"/>
+                        <button string="Enviado" type="workflow" name="signal_quotation_sent" states="valorado" class="oe_highlight"/>
                 </button>
-                <button string="Enviado" type="workflow" name="signal_quotation_sent" states="valorado" class="oe_highlight"/>
+
                 <button name="action_quotation_send" position="attributes">
                     <attribute name="states">valorado,sent,progress,manual</attribute>
                 </button>
