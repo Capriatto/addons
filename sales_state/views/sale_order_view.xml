@@ -45,7 +45,7 @@
                     <button string="Mark as sent" type="workflow" name="signal_quotation_sent" states="valorar" class="oe_highlight"/--> 
 
                     <!-- From new state to Quotation Sent -->
-                    <button string="Valorado" type="workflow" name="button_valorado" states="valorado" class="oe_highlight"/> 
+                    <button string="Valorado" type="workflow" name="button_valorado" states="valorar" class="oe_highlight"/> 
 
                 </field>
                 <!--button name="action_quotation_send" position="before">
