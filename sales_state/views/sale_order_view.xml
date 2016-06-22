@@ -58,9 +58,9 @@
                 <!--button name="print_quotation" position="attributes">
                     <attribute name="states">valorado,sent,progress,manual</attribute>
                 </button-->
-                <button name="action_button_confirm" position="attributes">
+                <!--button name="action_button_confirm" position="attributes">
                         <attribute name="states">sent,progress,manual</attribute>
-                </button>
+                </button-->
                 <field name="state" position="attributes">
                     <attribute name="statusbar_visible">draft,valorado,sent,progress,done</attribute>
                 </field>
