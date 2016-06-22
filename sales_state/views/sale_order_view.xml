@@ -6,6 +6,12 @@
         	<field name="kind">function</field>
        		<field name="action">action_quotation_valorar()</field>
 		</record>
+        <record id="action_quotation_valorado" model="workflow.activity">
+            <field name="wkf_id" ref="sale.wkf_sale"/>
+            <field name="name">valorar</field>
+            <field name="kind">function</field>
+            <field name="action">action_quotation_valorado()</field>
+        </record>
 
         <!-- Create transitions -->
         <!-- From Draft to Pendiente valorar -->
@@ -15,10 +21,10 @@
         	<field name="signal">button_para_valorar</field>
         </record>
         <!-- From Pendiente valorar to Quotation Sent -->
-        <record model="workflow.transition" id="trans_quotation_valorar_to_sent">
+        <record model="workflow.transition" id="trans_quotation_valorar_to_valorado">
             <field name="act_from" ref="action_quotation_valorar" />
-            <field name="act_to" ref="sale.act_sent" />
-            <field name="signal">signal_quotation_sent</field>
+            <field name="act_to" ref="action_quotation_valorado" />
+            <field name="signal">button_valorado</field>
         </record>
 
 
@@ -35,8 +41,11 @@
                     <!-- From draft to new state -->
                     <button string="Pendiente valorar" type="workflow" name="button_para_valorar" states="draft" class="oe_highlight"/>
 
+                    <!-- From new state to Quotation Sent >
+                    <button string="Mark as sent" type="workflow" name="signal_quotation_sent" states="valorar" class="oe_highlight"/--> 
+
                     <!-- From new state to Quotation Sent -->
-                    <button string="Mark as sent" type="workflow" name="signal_quotation_sent" states="valorar" class="oe_highlight"/> 
+                    <button string="Valorado" type="workflow" name="button_valorado" states="valorado" class="oe_highlight"/> 
 
                 </field>
                 <!--button name="action_quotation_send" position="before">
