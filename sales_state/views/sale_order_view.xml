@@ -11,6 +11,23 @@
         	<field name="act_from" ref="sale.act_draft" />
        		<field name="act_to" ref="act_quotation_valorar" />
         	<field name="signal">button_para_valorar</field>
-    	</record>
+    </record>
+
+    <record id="my_quotation_form" model="ir.ui.view">
+            <field name="name">sale.order.form</field>
+            <field name="model">sale.order</field>
+            <field name="inherit_id" ref="sale.view_order_form"/>
+            <field name="arch" type="xml">
+                <button name="action_quotation_send" position="before">
+                    <button name="button_para_valorar"
+                            states="draft"
+                            string="Valorar"
+                            type="workflow"
+                            class="oe_highlight"
+                            groups="base.group_user"/>
+                </button>
+            </field>
+        </record>
+
 	</data>
 </openerp>
