@@ -1,6 +1,6 @@
 <openerp>
 	<data>
-		<record id="act_quotation_valorar" model="workflow.activity">
+		<record id="action_quotation_valorar" model="workflow.activity">
         	<field name="wkf_id" ref="sale.wkf_sale"/>
         	<field name="name">valorar</field>
         	<field name="kind">function</field>
