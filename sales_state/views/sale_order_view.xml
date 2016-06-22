@@ -16,7 +16,7 @@
         </record>
         <!-- From Valorado to Quotation Sent -->
         <record model="workflow.transition" id="trans_quotation_valorar_to_sent">
-            <field name="act_from" ref="action_quotation_valorar" />
+            <field name="act_from" ref="action_quotation_valorado" />
             <field name="act_to" ref="sale.act_sent" />
             <field name="signal">signal_quotation_sent</field>
         </record>
@@ -37,23 +37,8 @@
 
                     <!-- From new state to Quotation Sent -->
                     <button string="Enviado" type="workflow" name="signal_quotation_sent" states="valorado" class="oe_highlight"/> 
-
-
                 </field>
-                <!--button name="action_quotation_send" position="before">
-                    <button name="button_para_valorar"
-                            states="draft"
-                            string="Valorar"
-                            type="workflow"
-                            class="oe_highlight"
-                            groups="base.group_user"/>
-                </button-->
             </field>
         </record>
-
-
-   
-
-
 	</data>
 </openerp>
