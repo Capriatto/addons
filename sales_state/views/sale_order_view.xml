@@ -15,11 +15,11 @@
         	<field name="signal">button_valorado</field>
         </record>
         <!-- From Valorado to Quotation Sent -->
-        <!--record model="workflow.transition" id="trans_quotation_valorado_to_sent">
+        <record model="workflow.transition" id="trans_quotation_valorado_to_sent">
             <field name="act_from" ref="action_quotation_valorado" />
             <field name="act_to" ref="sale.act_sent" />
             <field name="signal">signal_quotation_sent</field>
-        </record-->
+        </record>
 
 
         <!--record id="my_quotation_form" model="ir.ui.view">
@@ -49,7 +49,7 @@
                 <button name="action_quotation_send" position="before">
                         <button name="button_valorado" string="Valorado" states="draft"
                                 type="workflow" class="oe_highlight" groups="base.group_user"/>
-                        <!--button string="Enviado" type="workflow" name="signal_quotation_sent" states="valorado" class="oe_highlight"/-->
+                        <button string="Enviado" type="workflow" name="signal_quotation_sent" states="valorado" class="oe_highlight"/>
                 </button>
 
                 <!--button name="action_quotation_send" position="attributes">
