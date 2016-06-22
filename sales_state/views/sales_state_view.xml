@@ -1,0 +1,16 @@
+<openerp>
+	<data>
+		<record id="act_quotation_valorar" model="workflow.activity">
+        	<field name="wkf_id" ref="sale.wkf_sale"/>
+        	<field name="name">valorar</field>
+        	<field name="kind">function</field>
+       		<field name="action">action_quotation_valorar()</field>
+		</record>
+
+		<record model="workflow.transition" id="trans_quotation_draft_to_valorar">
+        	<field name="act_from" ref="sale.act_draft" />
+       		<field name="act_to" ref="act_quotation_valorar" />
+        	<field name="signal">button_para_valorar</field>
+    	</record>
+	</data>
+</openerp>
