@@ -8,7 +8,7 @@
 		</record>
         <record id="action_quotation_valorado" model="workflow.activity">
             <field name="wkf_id" ref="sale.wkf_sale"/>
-            <field name="name">valorar</field>
+            <field name="name">valorado</field>
             <field name="kind">function</field>
             <field name="action">action_quotation_valorado()</field>
         </record>
