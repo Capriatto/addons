@@ -9,11 +9,11 @@
 
         <!-- Create transitions -->
         <!-- From Draft to Valorado -->
-		<!--record model="workflow.transition" id="trans_quotation_draft_to_valorado">
+		<record model="workflow.transition" id="trans_quotation_draft_to_valorado">
         	<field name="act_from" ref="sale.act_draft" />
        		<field name="act_to" ref="action_quotation_valorado" />
-        	<field name="signal">button_valorado</field>
-        </record-->
+        	<field name="signal">valorado</field>
+        </record>
         <!-- From Valorado to Quotation Sent -->
         <!--record model="workflow.transition" id="trans_quotation_valorado_to_sent">
             <field name="act_from" ref="action_quotation_valorado" />
