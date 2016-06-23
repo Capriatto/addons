@@ -1,0 +1,22 @@
+<openerp>
+    <data>
+        <record id="sale_valoracion_view" model="ir.ui.view">
+            <field name="name">sale.valoracion.view</field>
+            <field name="model">sale.order</field>
+            <field name="inherit_id" ref="sale.view_order_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//page[@string='Other Information']" position="after">
+                    <page string="Valoración">
+                        <group string="Valoración del trabajo">
+                            <group>
+                                <field name="h_estimadas"/>
+                                <field name="coste_hora"/>
+                                <field name="valoracion"/>
+                            </group>
+                        </group>
+                    </page>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</openerp>
