@@ -14,6 +14,11 @@
        		<field name="act_to" ref="action_quotation_valorado" />
         	<field name="signal">valorado</field>
         </record>
+        <record model="workflow.transition" id="trans_quotation_valorado_to_confirm">
+            <field name="act_from" ref="action_quotation_valorado" />
+            <field name="act_to" ref="sale.act_router" />
+            <field name="signal">order_confirm</field>
+        </record>
         <!-- From Valorado to Quotation Sent -->
         <!--record model="workflow.transition" id="trans_quotation_valorado_to_sent">
             <field name="act_from" ref="action_quotation_valorado" />
