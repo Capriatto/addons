@@ -37,13 +37,13 @@
                 </button>
 
                 <button name="action_quotation_send" position="attributes">
-                    <attribute name="states">valorado,sent,progress,manual</attribute>
+                    <attribute name="states">valorado</attribute>
                 </button>
                 <button name="print_quotation" position="attributes">
-                    <attribute name="states">valorado,sent,progress,manual</attribute>
+                    <attribute name="states">valorado</attribute>
                 </button>
                 <button name="action_button_confirm" position="attributes">
-                        <attribute name="states">valorado,sent,progress,manual</attribute>
+                    <attribute name="states">valorado</attribute>
                 </button>
             </field>  
         </record>
