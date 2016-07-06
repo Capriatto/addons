@@ -17,5 +17,6 @@
     "data": [
         "views/meeting_reason_view.xml",
         "data/meeting_reason.xml",
+        "security/ir.model.access.csv",
     ],
 }
