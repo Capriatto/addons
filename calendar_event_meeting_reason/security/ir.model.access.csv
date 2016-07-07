@@ -1,2 +1,2 @@
 id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
-access_calendar_event_meeting_reason,calendar_event_meeting_reason,calendar_event_meeting_reason.model_calendar_event_meeting_reason,base.group_user,1,1,1,1
+access_calendar_event_meeting_reason,calendar_event_meeting_reason,calendar.event.meeting.reason,base.group_user,1,1,1,1
