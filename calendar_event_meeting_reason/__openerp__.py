@@ -12,6 +12,7 @@
     "installable": True,
     "depends": [
         "base",
+        "event",
         "calendar",
     ],
     "data": [
